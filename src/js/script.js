@@ -80,7 +80,7 @@ $(document).ready(function() {
       },{
         iconLayout: 'default#imageWithContent',
         // Своё изображение иконки метки.
-        iconImageHref: '../img/geo.png',
+        iconImageHref: './img/geo.png',
         // Размеры метки.
         iconImageSize: [81, 75],
         iconImageOffset: [-40, -40],
