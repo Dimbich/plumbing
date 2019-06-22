@@ -1,0 +1,46 @@
+* 
+  box-sizing: border-box
+body 
+  +reg
+  color: $main-text-color
+img 
+  // max-width: 100%
+h2, p 
+  margin: 0
+.input
+  display: block
+  width: 100%  
+  border: none
+  border-bottom: 1px solid #000000
+  padding: 6px 0
+  font-size: 18px
+  font-style: italic
+  outline: none
+  color: $main-text-color
+.container 
+  max-width: 1170px
+  margin: auto
+
+.button
+  background: $main-color
+  text-transform: uppercase
+  border: none
+  padding: 9px 17px
+  &:hover
+    cursor: pointer
+.section
+  &__title
+    display: inline-block
+    // padding: 15px 66px
+    line-height: 58px
+    font-size: 28px
+    width: 244px
+    text-align: center
+    text-transform: uppercase
+    color: $main-text-color
+    background-color: $main-color
+@mixin title_position
+    position: relative
+    top: -28px
+    left: -34px 
+  

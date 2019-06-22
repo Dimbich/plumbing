@@ -1,0 +1,91 @@
+.worth
+  margin-top: 142px
+  padding-bottom: 90px 
+  position: relative
+  &:before
+    content: ''
+    display: block
+    position: absolute
+    width: 60%
+    height: 100%
+    background-color: $secondary-background
+    opacity:  0.55
+    z-index: -1
+  &__title
+    +title_position
+  &-block
+    display: flex
+    justify-content: space-around
+    margin-top: 35px
+  &-image   
+    &s 
+      display: flex
+      justify-content: flex-start
+      align-items: center
+      align-content: space-between
+      flex-flow: wrap
+      flex-basis: 81%
+      margin-right: 34px
+    &__title
+      // padding-top: 0
+      // line-height: 28px
+    &__item
+      width: 198px
+      height: 168px
+      display: flex
+      flex-direction: column
+      justify-content: flex-start
+      align-items: center
+      margin-right: 35px
+      text-transform: uppercase
+      text-align: center
+      font-size: 18px
+    &__logo
+      flex-basis: 50%
+      display: flex
+      align-items: center
+  &-list
+    list-style: none
+    counter-reset: dmitriy-counter
+    padding: 0
+    margin: 0
+    margin-top: 2px
+    &s 
+      margin-top: 4px
+    &__item
+      position: relative
+      display: flex
+      align-items: center
+      margin-bottom: 67px
+      counter-increment: dmitriy-counter
+      font-size: 20px
+      line-height: 25px
+      &:before
+        content: counter(dmitriy-counter)
+        margin-right: 60px
+        color: $main-color
+        font-size: 35px
+        line-height: 35px
+        +bold
+      &:after
+        content: ''
+        display: block 
+        width: 31px
+        height: 2px
+        position: absolute
+        background-color: #000000
+        top: 50%
+        left: 35px
+      &:nth-child(1), &:nth-child(2)
+        &:before
+          align-self: start
+        &:after
+          top: 25%
+      &:nth-child(3)
+          margin-bottom: 79px
+      &:last-child
+        margin-bottom: 0
+
+
+
+ 

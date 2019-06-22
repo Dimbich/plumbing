@@ -1,0 +1,72 @@
+.review 
+  text-align: center
+  &__blockdots
+    padding-bottom: 119px
+  &s 
+    margin-top: 137px
+    background-color: #010101
+    // .slick-slide
+    //   width: 40%!important;
+    //   &:nth-child(odd)
+    //     margin-right: 20%
+    &-block
+      margin-top: 55px
+    &__title
+      +title_position
+  &__photo
+    margin-left: 38%
+    position: relative
+    &:after
+      @extend %fa-icon
+      @extend .fas
+      position: absolute
+      left: 76px
+      top: -2px
+      display: inline-block
+      content: fa-content($fa-var-quote-left)
+      color: #fff
+      background-color: $main-color
+      border-radius: 50%
+      font-size: 17px
+      padding: 9px 9px
+    img 
+      max-width: none
+      object-fit: cover
+      border-radius: 50%
+      width: 116px
+      height: 116px
+  &__author
+    margin-top: 14px
+    color: $main-color
+    font-size: 20px
+  &__text
+    margin-top: 19px
+    color: #ffffff
+    font-size: 20px
+    line-height: 28px
+    
+  &_like_block
+    margin-top: 24px
+  &__like
+    font-size: 15px
+    margin-right: 20px
+    color: #fff
+    &:before
+      @extend %fa-icon
+      @extend .fas 
+      content: fa-content($fa-var-thumbs-up)      
+      color: $main-color
+      font-size: 20px
+      padding-right: 7px
+  &__dislike
+    font-size: 15px
+    color: #fff
+    &:before
+      @extend %fa-icon
+      @extend .fas
+      content: fa-content($fa-var-thumbs-down)
+      color: $main-color
+      transform: scaleX(-1)
+      font-size: 20px
+      padding-left: 7px
+

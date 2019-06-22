@@ -1,0 +1,62 @@
+.slider
+  // width: 100%
+  // background-color: $back-color
+  margin-left: -8px
+  &__title
+    padding-top: 203px
+    font-size: 35px
+    text-transform: uppercase
+    color: $main-color
+  &__subtitle
+    padding-top: 13px
+    font-size: 35px
+    color: $hero_secondary
+  &__info
+    padding-top: 25px
+    opacity: 0.42
+    font-size: 20px
+    line-height: 28px;
+    color: $hero_secondary
+  &__button
+    padding: 13px 40px
+    margin: 48px 0 272px 0
+    font-size: 18px
+  &__item 
+    min-height: 742px  
+    &_slide1, &_slide2
+      position: relative
+      &:after
+        content: ''
+        position: absolute
+        background: $back-color url('../img/hero/boylernaya-v-podvalnom-etazhe-chastnogo-doma.png') center center
+        background-size: cover
+        opacity: 0.9
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+        z-index: -1
+    &_slide2
+      &:after
+        background: $back-color url('../img/hero/serv-sant.png') center center
+  &__blockdots
+    position: absolute
+    bottom: 30px
+    left: 50%
+  &__dot
+    display: inline-block
+    width: 20px
+    height: 20px
+    margin-right: 11px
+    background-color: #ffffff  
+    &:last-child
+      margin-right: 0
+    &s
+      display: flex
+      padding: 0
+      list-style: none
+      .slick-active
+        background-color: $main-color
+  
+      
+

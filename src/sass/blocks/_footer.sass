@@ -1,0 +1,64 @@
+.footer
+  background-color: #000000
+  color: #ffffff
+  height: 134px
+  .container
+    height: 100%
+    display: flex
+    align-items: center
+  &__block
+    width: 100%
+    display: flex
+    justify-content: space-between
+    align-items: center
+  &__contacts
+    font-size: 18px
+  &__phone
+    text-decoration: none
+    color: #ffffff 
+    padding-right: 0px 
+    margin-right: -3px
+  &__email
+    &:before 
+      @extend %fa-icon
+      @extend .fas 
+      content: fa-content($fa-var-envelope)
+      font-size: 18px
+      color: $main-color
+      padding-right: 10px
+    &:after
+      content: " | "
+      padding: 0 12px 0 15px
+      color: #ffffff
+      opacity: 0.33
+  &__address
+    font-size: 20px
+  
+    &:before 
+      @extend %fa-icon
+      @extend .fas 
+      content: fa-content($fa-var-map-marker-alt)
+      color: $main-color
+      padding-right: 13px
+.social
+  display: flex
+  min-width: 98px
+  justify-content: space-between
+  margin-left: 13px
+  &__link
+    
+    // float: left
+    color: #000000
+    background-color: #ffffff
+    width: 26px
+    height: 26px
+    line-height: 28px
+    text-align: center
+    border-radius: 50%
+    &:hover
+      background-color:  $main-color  
+    
+
+      
+
+    

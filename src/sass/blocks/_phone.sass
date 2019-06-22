@@ -1,0 +1,11 @@
+.phone 
+  font-size: 18px
+  color: #000000;
+  &:before 
+    @extend %fa-icon
+    @extend .fa 
+    content: fa-content($fa-var-phone-alt)
+    color: $main-color
+    padding-right: 5px
+  &_boldnums
+    +bold

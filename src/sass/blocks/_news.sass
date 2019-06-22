@@ -1,0 +1,53 @@
+.news
+  margin-top: 147px
+  position: relative
+  &:before
+    content: ''
+    display: block
+    position: absolute
+    left: 0
+    top: 0
+    width: 100%
+    height: 100%
+    background-color: #f1f1f1
+    opacity: 0.5
+    z-index: -1
+  &__title
+    +title_position
+  &__block 
+    margin-top: 28px
+    display: flex
+    justify-content: space-between
+    flex-wrap: wrap
+  &-item
+    max-width: 377px
+    &__header
+      display: flex
+      justify-content: space-between
+      align-items: center 
+      margin-top: 25px   
+    &__title
+      margin: 0
+      font-size: 20px
+      text-transform: uppercase
+      +bold
+    &__date
+      margin-right: 40px
+      font-size: 16px     
+    &__day
+      margin-right: -5px
+      +bold
+      display: inline-block
+      padding: 3px 2px
+      background-color: $main-color
+    &__text
+      margin-top: 14px
+      font-size: 18px
+      max-width: 325px
+      line-height: 28px      
+  &__button
+    display: block
+    margin: 71px auto
+    padding: 22px 44px
+    font-size: 20px
+

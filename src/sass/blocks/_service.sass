@@ -1,0 +1,56 @@
+.service
+  width: 377px
+  height: 236px
+  // border: 1px solid black
+  margin-bottom: 20px
+  background-color: grey 
+  filter: grayscale(100%)
+  &:hover
+    filter: grayscale(0)    
+    .service
+      &__header        
+        color: $main-text-color
+  &_battery
+    background-image: url('../img/service/battery.jpg')
+  &_plumbing
+    background-image: url('../img/service/plumbing.jpg') 
+  &_view
+    background-image: url('../img/service/view.jpg') 
+  &__header
+    margin-top: 57px
+    text-align: center
+    line-height: 27px
+    color: #ffffff
+  &__button
+    display: block
+    margin: auto
+    margin-top: 22px
+    &_active
+      background-color: $back-color
+      color: #ffffff 
+  &s
+    margin-top: 133px
+    // margin-bottom: 117px
+    position: relative
+    &:before
+      content: ''
+      display: block
+      position: absolute
+      left: 0
+      top: 0
+      width: 100%
+      height: 100%
+      background-color: #f1f1f1
+      opacity: 0.55
+      z-index: -1
+    &__title
+      position: relative
+      top: -30px
+      left: -31px
+    &__block
+      display: flex
+      flex-wrap: wrap
+      justify-content: space-between
+      align-content: center
+      margin-top: 46px
+      padding-bottom: 98px
