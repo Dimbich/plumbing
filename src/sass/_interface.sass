@@ -7,6 +7,30 @@ img
   // max-width: 100%
 h2, p 
   margin: 0
+form 
+  .error 
+    border-color: $error
+label 
+  display: block
+  margin-bottom: 15px
+  text-align: center
+  color: $error
+.error
+  &:before 
+    @extend %fa-icon
+    @extend .fas 
+    content: fa-content($fa-var-skull-crossbones)
+    font-size: 18px
+    color: $error
+    padding-right: 10px
+// .success
+//   &:before 
+//     @extend %fa-icon
+//     @extend .fas 
+//     content: fa-content($fa-var-scheck-circle)
+//     font-size: 18px
+//     color: $success
+//     padding-right: 10px
 .input
   display: block
   width: 100%  
@@ -22,11 +46,14 @@ h2, p
   margin: auto
 
 .button
-  background: $main-color
+  background-color: $main-color
   text-transform: uppercase
   border: none
   padding: 9px 17px
+  outline: none
   &:hover
+    background-color: $main-text-color
+    color: $main-color
     cursor: pointer
 .section
   &__title

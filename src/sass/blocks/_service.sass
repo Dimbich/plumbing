@@ -1,21 +1,23 @@
 .service
+  position: relative
   width: 377px
   height: 236px
-  // border: 1px solid black
   margin-bottom: 20px
-  background-color: grey 
-  filter: grayscale(100%)
   &:hover
-    filter: grayscale(0)    
     .service
       &__header        
         color: $main-text-color
-  &_battery
-    background-image: url('../img/service/battery.jpg')
-  &_plumbing
-    background-image: url('../img/service/plumbing.jpg') 
-  &_view
-    background-image: url('../img/service/view.jpg') 
+  img 
+    // display: block
+    background-color: grey 
+    position: absolute
+    left: 0
+    top: 0
+    z-index: -1
+    filter: grayscale(100%)
+  &:hover
+    img 
+      filter: grayscale(0)
   &__header
     margin-top: 57px
     text-align: center

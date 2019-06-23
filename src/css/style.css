@@ -364,6 +364,7 @@ template {
  */
 .fa, .phone:before,
 .fas,
+.error:before,
 .review__photo:after,
 .review__like:before,
 .review__dislike:before,
@@ -381,7 +382,7 @@ template {
   line-height: 1;
 }
 
-.phone:before, .review__photo:after, .review__like:before, .review__dislike:before, .footer__email:before, .footer__address:before {
+.error:before, .phone:before, .review__photo:after, .review__like:before, .review__dislike:before, .footer__email:before, .footer__address:before {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   display: inline-block;
@@ -484,6 +485,7 @@ template {
 
 .fa.fa-pull-left, .fa-pull-left.phone:before,
 .fas.fa-pull-left,
+.fa-pull-left.error:before,
 .fa-pull-left.review__photo:after,
 .fa-pull-left.review__like:before,
 .fa-pull-left.review__dislike:before,
@@ -497,6 +499,7 @@ template {
 
 .fa.fa-pull-right, .fa-pull-right.phone:before,
 .fas.fa-pull-right,
+.fa-pull-right.error:before,
 .fa-pull-right.review__photo:after,
 .fa-pull-right.review__like:before,
 .fa-pull-right.review__dislike:before,
@@ -6188,6 +6191,7 @@ readers do not read off random characters that represent icons */
 
 .fa, .phone:before,
 .fas,
+.error:before,
 .review__photo:after,
 .review__like:before,
 .review__dislike:before,
@@ -6228,6 +6232,24 @@ h2, p {
   margin: 0;
 }
 
+form .error {
+  border-color: #ff5722;
+}
+
+label {
+  display: block;
+  margin-bottom: 15px;
+  text-align: center;
+  color: #ff5722;
+}
+
+.error:before {
+  content: "\f714";
+  font-size: 18px;
+  color: #ff5722;
+  padding-right: 10px;
+}
+
 .input {
   display: block;
   width: 100%;
@@ -6246,13 +6268,16 @@ h2, p {
 }
 
 .button {
-  background: #ffd200;
+  background-color: #ffd200;
   text-transform: uppercase;
   border: none;
   padding: 9px 17px;
+  outline: none;
 }
 
 .button:hover {
+  background-color: #020202;
+  color: #ffd200;
   cursor: pointer;
 }
 
@@ -6552,33 +6577,29 @@ h2, p {
 }
 
 .service {
+  position: relative;
   width: 377px;
   height: 236px;
   margin-bottom: 20px;
-  background-color: grey;
-  -webkit-filter: grayscale(100%);
-          filter: grayscale(100%);
-}
-
-.service:hover {
-  -webkit-filter: grayscale(0);
-          filter: grayscale(0);
 }
 
 .service:hover .service__header {
   color: #020202;
 }
 
-.service_battery {
-  background-image: url("../img/service/battery.jpg");
+.service img {
+  background-color: grey;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  -webkit-filter: grayscale(100%);
+          filter: grayscale(100%);
 }
 
-.service_plumbing {
-  background-image: url("../img/service/plumbing.jpg");
-}
-
-.service_view {
-  background-image: url("../img/service/view.jpg");
+.service:hover img {
+  -webkit-filter: grayscale(0);
+          filter: grayscale(0);
 }
 
 .service__header {
@@ -6919,6 +6940,10 @@ h2, p {
 
 .news-item {
   max-width: 377px;
+}
+
+.news-item:hover .news-item__title, .news-item:hover .news-item__text {
+  text-decoration: underline;
 }
 
 .news-item__header {

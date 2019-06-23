@@ -87,37 +87,40 @@ $(document).ready(function() {
       });
       myMap.geoObjects.add(myPlacemarkWithContent);
     }
-  // $("#brif-form,  #offer_form").each(function(){
-  //   $(this).validate({
-  //     rules: {
-  //       username: {
-  //         required: true,
-  //         rangelength: [2, 15]
-  //       },
-  //       email: {
-  //         required: true,
-  //         email: true
-  //       },
-  //       phone: {
-  //         required: true,
-  //       }
-  //     },
-  //     messages: {
-  //       username: {
-  //         required:'Заполните имя',
-  //         rangelength: 'Введите от 2 до 15 символов'
-  //       },
-  //       email: {
-  //           required: "Заполните e-mail",
-  //           email: "Введите корректный email"
-  //       },
-  //       phone: {
-  //         required: "Заполните телефон",
-  //       }
-  //     }    
-  //   });
-  // });
-  // $(".phone").mask('+7 (999) 999-99-99');
+
+
+  $("form").each(function(){
+    $(this).validate({
+      validClass: "success",
+      rules: {
+        username: {
+          required: true,
+          rangelength: [2, 15]
+        },
+        email: {
+          required: true,
+          email: true
+        },
+        phone: {
+          required: true,
+        }
+      },
+      messages: {
+        username: {
+          required:'Заполните имя',
+          rangelength: 'Введите от 2 до 15 символов'
+        },
+        email: {
+            required: "Заполните e-mail",
+            email: "Введите корректный email"
+        },
+        phone: {
+          required: "Заполните телефон",
+        }
+      }    
+    });
+  });
+  $(".phone").mask('+7 (999) 999-99-99');
 
   // const mapStart = $('.brif').offset().top;
   // let isScroll;
