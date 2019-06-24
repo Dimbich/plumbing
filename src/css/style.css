@@ -370,6 +370,8 @@ template {
 .review__dislike:before,
 .footer__email:before,
 .footer__address:before,
+.title__success:before,
+.title__error:before,
 .far,
 .fal,
 .fab {
@@ -382,7 +384,7 @@ template {
   line-height: 1;
 }
 
-.error:before, .phone:before, .review__photo:after, .review__like:before, .review__dislike:before, .footer__email:before, .footer__address:before {
+.error:before, .phone:before, .review__photo:after, .review__like:before, .review__dislike:before, .footer__email:before, .footer__address:before, .title__success:before, .title__error:before {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   display: inline-block;
@@ -491,6 +493,8 @@ template {
 .fa-pull-left.review__dislike:before,
 .fa-pull-left.footer__email:before,
 .fa-pull-left.footer__address:before,
+.fa-pull-left.title__success:before,
+.fa-pull-left.title__error:before,
 .far.fa-pull-left,
 .fal.fa-pull-left,
 .fab.fa-pull-left {
@@ -505,6 +509,8 @@ template {
 .fa-pull-right.review__dislike:before,
 .fa-pull-right.footer__email:before,
 .fa-pull-right.footer__address:before,
+.fa-pull-right.title__success:before,
+.fa-pull-right.title__error:before,
 .far.fa-pull-right,
 .fal.fa-pull-right,
 .fab.fa-pull-right {
@@ -6196,7 +6202,9 @@ readers do not read off random characters that represent icons */
 .review__like:before,
 .review__dislike:before,
 .footer__email:before,
-.footer__address:before {
+.footer__address:before,
+.title__success:before,
+.title__error:before {
   font-family: 'Font Awesome 5 Free';
   font-weight: 900;
 }
@@ -6615,7 +6623,7 @@ label {
   margin-top: 22px;
 }
 
-.service__button_active {
+.service__button_active:hover {
   background-color: #000000;
   color: #ffffff;
 }
@@ -7091,6 +7099,11 @@ label {
   margin-right: -3px;
 }
 
+.footer__email {
+  text-decoration: none;
+  color: #ffffff;
+}
+
 .footer__email:before {
   content: "\f0e0";
   font-size: 18px;
@@ -7138,4 +7151,88 @@ label {
 
 .social__link:hover {
   background-color: #ffd200;
+}
+
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  -webkit-transition: visibility 0s linear 0.25s, opacity 0.25s 0s, -webkit-transform 0.25s;
+  transition: visibility 0s linear 0.25s, opacity 0.25s 0s, -webkit-transform 0.25s;
+  transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+  transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s, -webkit-transform 0.25s;
+}
+
+.modal__content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 1rem 1.5rem;
+  width: 24rem;
+  border-radius: 0.5rem;
+}
+
+.modal__text {
+  padding-bottom: 20px;
+}
+
+.close-button {
+  float: right;
+  width: 1.5rem;
+  line-height: 1.5rem;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 0.25rem;
+  background-color: lightgray;
+}
+
+.close-button:hover {
+  background-color: darkgray;
+}
+
+.show-modal {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  -webkit-transition: visibility 0s linear 0s, opacity 0.25s 0s, -webkit-transform 0.25s;
+  transition: visibility 0s linear 0s, opacity 0.25s 0s, -webkit-transform 0.25s;
+  transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+  transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s, -webkit-transform 0.25s;
+}
+
+.title {
+  text-align: center;
+}
+
+.title__success {
+  color: green;
+}
+
+.title__success:before {
+  content: "\f058";
+  font-size: 18px;
+  color: green;
+  padding-right: 10px;
+}
+
+.title__error {
+  color: red;
+}
+
+.title__error:before {
+  content: "\f06a";
+  font-size: 18px;
+  color: red;
+  padding-right: 10px;
 }

@@ -1,14 +1,35 @@
 $(document).ready(function() {
-  // const button = $('.navbar__button');
-  // const modal = $('.modal');
-  // const close = $('.modal-dialog__close');
-  // button.on('click', function() {
-  //   modal.addClass('modal_active');
-  // })
+  const validateSettings = {
+    validClass: "success",
+    rules: {
+      username: {
+        required: true,
+        rangelength: [2, 15]
+      },
+      email: {
+        required: true,
+        email: true
+      },
+      phone: {
+        required: true,
+      }
+    },
+    messages: {
+      username: {
+        required:'Заполните имя',
+        rangelength: 'Введите от 2 до 15 символов'
+      },
+      email: {
+          required: "Заполните e-mail",
+          email: "Введите корректный email"
+      },
+      phone: {
+        required: "Заполните телефон",
+      }
+    }    
+  }
 
-  // close.on('click', function() {
-  //   modal.removeClass('modal_active');
-  // })
+  let fromModal = false;
 
   $('.slider').on('init', function(event, slick){
     var $items = slick.$dots.find('li');
@@ -54,7 +75,7 @@ $(document).ready(function() {
       if (!l_key) {
         $(elem).addClass("service__button_active");
         $(elem).width($(elem).width());
-        elem.innerText = '500 руб.';       
+        elem.innerText = 'от 500 руб.';       
       } else {
         $(elem).removeClass("service__button_active");
         elem.innerText = 'Узнать цену';        
@@ -89,41 +110,122 @@ $(document).ready(function() {
     }
 
 
-  $("form").each(function(){
-    $(this).validate({
-      validClass: "success",
-      rules: {
-        username: {
-          required: true,
-          rangelength: [2, 15]
-        },
-        email: {
-          required: true,
-          email: true
-        },
-        phone: {
-          required: true,
-        }
-      },
-      messages: {
-        username: {
-          required:'Заполните имя',
-          rangelength: 'Введите от 2 до 15 символов'
-        },
-        email: {
-            required: "Заполните e-mail",
-            email: "Введите корректный email"
-        },
-        phone: {
-          required: "Заполните телефон",
-        }
-      }    
-    });
-  });
+  //$("form").each(function(){
+    $('#map-form').validate(validateSettings);
+ // });
+
   $(".phone").mask('+7 (999) 999-99-99');
 
-  // const mapStart = $('.brif').offset().top;
-  // let isScroll;
+
+  let modal = document.querySelector(".modal");
+  let btn = document.querySelector(".navbar__button");
+  let closeButton = document.querySelector(".close-button");
+  let modalText = document.querySelector(".modal__text");
+
+  modal.addEventListener('click', function(event){
+    if (event.target.classList.contains('close-button')||event.target == this){
+      toggleModal();
+    }
+  })
+
+  function toggleModal(type, message, fromModal) {   
+    if (fromModal) {
+      cleanForm(document.querySelector(".modal__content"));
+      if (type == 'info') {
+        generateContentModal(type,'Заявка принята!', message);
+        document.querySelector(".modal__title").classList.add('title__success');
+      } else {
+        generateContentModal(type, 'Заявка не принята!',message);
+        document.querySelector(".modal__title").classList.add('title__error');
+      }
+    } else {
+      if (modal.classList.contains("show-modal")) {
+        cleanForm(document.querySelector(".modal__content"))
+        document.body.style.overflow = 'visible';           
+      } else {
+        document.body.style.overflow = 'hidden';
+        if (type=='info') {          
+          generateContentModal(type,'Заявка принята!', message);
+          document.querySelector(".modal__title").classList.add('title__success');
+        } else if (type == 'error') {
+          generateContentModal(type, 'Заявка не принята!',message);
+          
+        } else {
+          generateContentModal('form', 'Введите, пожалуйста, имя и номер телефона'); 
+          $(".phone").mask('+7 (999) 999-99-99');       
+          $('#modal-form').validate(validateSettings); 
+          sendData(document.getElementById('modal-form'), true);     
+        }        
+      }
+      modal.classList.toggle("show-modal");
+    }  
+  }
+
+
+
+  function generateContentModal(type ,title, message){ 
+
+    if (type == 'error' || type =='info') {
+      document.querySelector('.modal__content').insertAdjacentHTML('beforeEnd','<h4 class="modal__title">'+title+'</h4><p class="modal__text">'+message+'</p>');
+    }   else {
+      document
+        .querySelector('.modal__content')
+        .insertAdjacentHTML('beforeEnd', 
+        `<h4 class="modal__title">${title}</h4>
+          <form action="#" id="modal-form">
+            <input type="text" class="input map__input" placeholder="Введите Ваше имя" name="username">
+            <input type="text" class="input map__input phone phone_modal" placeholder="Введите Ваш номер телефона" name="phone">
+            <button class="button map__button" type="submit">заказать  звонок</button>
+      </form>`
+      );
+    }     
+  }
+
+  function cleanForm(form){
+    form.innerHTML = '<span class="close-button">×</span>'
+  }
+
+  btn.addEventListener("click", toggleModal);
+  
+  function sendData(modalForm, fromModal) {
+    $(modalForm).on('submit', function(event){
+      let inputs = this.getElementsByTagName("input");
+      let sendForm = true;
+      for (let i = 0; i < inputs.length; i++) {
+        if (inputs[i].classList.contains('error')) {
+          sendForm = false
+          break; 
+        }
+      }
+      event.preventDefault();
+      if (sendForm) {
+        
+        $.ajax({
+          type: 'POST',
+          url: 'mail.php',
+          data: $(this).serialize()})
+        .done(function(data){
+          toggleModal('info', data, fromModal);
+        })
+        .fail(function(){
+          toggleModal('error', 'При отправке данных произошла ошибка.<br>Отправьте, пожалуйста, заявку повторно', fromModal);
+        });
+        for (let i = 0; i < inputs.length; i++) {
+          inputs[i].value = '';
+        }
+      }
+    });
+  }
+
+  sendData(document.getElementById('map-form'));
+
+  $(document).on('click', 'a[href^="#"]', function (event) {
+    event.preventDefault();
+
+    $('html, body').animate({
+        scrollTop: $($.attr(this, 'href')).offset().top
+    }, 500);
+  });
 
   // $(window).scroll(function() {
   //   if ($(document).scrollTop() >= mapStart && !isScroll) {
