@@ -1,8 +1,26 @@
-.review 
-  text-align: center
+.review  
   &__blockdots
-    padding-bottom: 119px
+    position: absolute
+    bottom: 11px
+    left: 50%
+    transform: translateX(-50%)
+  &__dot
+    display: block
+    width: 20px
+    height: 20px
+    margin-right: 11px
+    background-color: #ffffff  
+    &:last-child
+      margin-right: 0
+    &s
+      display: flex
+      padding: 0
+      list-style: none
+      .slick-active
+        background-color: $main-color
+  
   &s 
+    position: relative
     margin-top: 137px
     background-color: #010101
     // .slick-slide
@@ -15,6 +33,7 @@
       +title_position
   &__photo
     margin-left: 38%
+    margin-bottom: 13px
     position: relative
     &:after
       @extend %fa-icon
@@ -44,9 +63,13 @@
     color: #ffffff
     font-size: 20px
     line-height: 28px
-    
+  &__item
+    padding: 45px
+    margin-top: 12px
+    text-align: center
   &_like_block
     margin-top: 24px
+    margin-bottom: 104px
   &__like
     font-size: 15px
     margin-right: 20px
@@ -69,4 +92,29 @@
       transform: scaleX(-1)
       font-size: 20px
       padding-left: 7px
+@media (max-width: 992px)
+  .review  
+    &__photo
+      margin-left: 35% 
+@media (max-width: 768px)
+  .review  
+    &__photo
+      margin-left: 41% 
+@media (max-width: 576px)
+  .review  
+    &__photo
+      margin-left: 37%       
+
+@media (max-width: 360px)
+  .review
+    &__photo
+      margin-left: 25% 
+    &s
+      margin-top: 100px
+@media (max-width: 320px)
+  .review
+    &__photo
+      margin-left: 20% 
+    &__author, &__text
+      font-size: 18px  
 

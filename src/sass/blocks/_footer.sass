@@ -17,7 +17,7 @@
     text-decoration: none
     color: #ffffff 
     padding-right: 0px 
-    margin-right: -3px
+    // margin-right: -3px
   &__email
     text-decoration: none
     color: #ffffff
@@ -35,6 +35,11 @@
       opacity: 0.33
   &__address
     font-size: 20px
+    color: #ffffff
+    text-decoration: none
+    &:hover
+      text-decoration: underline
+
   
     &:before 
       @extend %fa-icon
@@ -59,8 +64,47 @@
     border-radius: 50%
     &:hover
       background-color:  $main-color  
-    
 
+  
+@media (max-width: 992px)
+  .footer  
+    &__contacts
+      display: flex
+      justify-content: center
+      align-items: center
+      flex-direction: column
+      margin-top: 20px
+    &__email
+      margin-bottom: 10px
+      &:after    
+        content: "" 
+        padding: 0px   
+@media (max-width: 768px) 
+   .footer 
+      height: 200px
+      &__block
+        justify-content: center
+        flex-direction: column 
+      &__contacts
+        flex-direction: column 
+        margin-top: 0px       
+      &__social
+        margin: 20px 0
+      &__email
+        // margin-bottom: 0px
+@media (max-width: 500px) 
+   .footer 
+      &__contacts
+        flex-direction: column
+      &__email
+        margin-bottom: 20px        
+    
+@media (max-width: 360px) 
+   .footer
+      height: 250px 
+      &__address
+        font-size: 18px
+        text-align: center
       
 
     

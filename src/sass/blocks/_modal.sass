@@ -27,7 +27,8 @@
   text-align: center
   cursor: pointer
   border-radius: 0.25rem
-  background-color: lightgray
+  // background-color: lightgray
+  font-size: 30px
   &:hover
     background-color: darkgray
 .show-modal
@@ -55,5 +56,8 @@
       font-size: 18px
       color: red
       padding-right: 10px
-
+@media (max-width: 576px)
+  .modal 
+    &__content
+      width: 300px
 

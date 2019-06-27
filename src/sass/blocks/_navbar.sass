@@ -1,19 +1,7 @@
 .navbar
   position: relative
   padding: 7px 0 4px 0
- 
-  // &:after
-  //   content: ''
-  //   position: fixed
-  //   top: 0
-  //   left: 0
-  //   width: 50%
-  //   height: 100%
-  //   // background-color: #f1f1f1;
-  //   background-color: #000000
-  //   opacity: 0.55
-  //   // left: calc(50% + 200px)
-    z-index: -1
+  // z-index: -1
   &__block 
     display: flex
     justify-content: space-between
@@ -25,6 +13,54 @@
     text-transform: none
   &__phone 
     text-decoration: none
+  &__hamburger
+    display: none 
+
+@media (max-width: 1920px)
+  .navbar
+    background: linear-gradient(to right, #fff 61%, $secondary-background 0%)
+
+@media (max-width: 1366px)
+  .navbar
+    background: linear-gradient(to right, #fff 63%, $secondary-background 0%)
+@media (max-width: 1280px)
+  .navbar
+    background: linear-gradient(to right, #fff 64%, $secondary-background 0%)
+
+@media (max-width: 1200px)
+  .navbar
+    background: linear-gradient(to right, #fff 60%, $secondary-background 0%)
+@media (max-width: 992px) 
+  .navbar
+    background: 0 0
+    &__hamburger
+      display: flex
+      font-size: 36px
+      margin: 0px 0px 0px 25px
+      height: 36px
+      width: 36px
+           
+    &__info
+      margin: 0px 25px 0px 0px 
+@media (max-width: 500px) 
+  .navbar
+    &__info
+      flex-direction: column
+      display: flex
+    &__button
+      margin-top: 10px   
+@media (max-width: 320px) 
+  .navbar
+    &__hamburger
+      font-size: 32px
+      margin: 0px 0px 0px 20px
+    &__logo
+      display: none  
+    &__info
+      margin: 0px 20px 0px 0px 
+    &__phone
+      font-size: 14px!important
+      text-align: right     
   
 
 
